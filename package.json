@@ -1,0 +1,29 @@
+{
+  "name": "uncurry",
+  "version": "0.1.0",
+  "description": "A package that helps you uncurry curried functions for performance boost.",
+  "main": "./dist/index.cjs.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npx mocha --recursive './test/**/*.js' --require esm",
+    "build": "spago bundle-module --main Helper --to src/utilities/_Helper.js; NODE_ENV=production npx rollup -c;",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winston0410/uncurry.git"
+  },
+  "keywords": [
+    "uncurry",
+    "functional",
+    "programming"
+  ],
+  "author": "Hugo Sum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/winston0410/uncurry/issues"
+  },
+  "homepage": "https://github.com/winston0410/uncurry#readme"
+}
