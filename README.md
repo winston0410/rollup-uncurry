@@ -4,6 +4,27 @@
 
 A package that helps you uncurry curried functions for performance boost.
 
+```javascript
+//Before transformation
+
+//Curried function
+const curriedFn = (param1) => (param2) => param1
+
+//Partial application
+const partialApplication = curriedFn('Hello')
+```
+
+```javascript
+//After transformation
+
+//Curried function
+const curriedFn = (param1, param2) => param1
+
+//Partial application
+//The partially applied parameter will be reduced from both the head and the body of the function.
+const partialApplication = (param2) => 'Hello'
+```
+
 ## Installation
 
 TODO
