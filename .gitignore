@@ -68,7 +68,6 @@ dist
 
 # Purescript
 output
-purescript
 .spago
 .psci_modules
 
