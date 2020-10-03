@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "A package that helps you uncurry curried functions for performance boost.",
   "main": "./dist/index.cjs.js",
-  "directories": {
-    "test": "test"
-  },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "test": "npx mocha --recursive './test/**/*.js' --require esm",
     "build": "spago bundle-module --main Helper --to src/utilities/_Helper.js; NODE_ENV=production npx rollup -c;",
@@ -18,7 +18,8 @@
   "keywords": [
     "uncurry",
     "functional",
-    "programming"
+    "programming",
+    "rollup-plugin"
   ],
   "author": "Hugo Sum",
   "license": "MIT",
@@ -26,7 +27,9 @@
     "url": "https://github.com/winston0410/uncurry/issues"
   },
   "homepage": "https://github.com/winston0410/uncurry#readme",
-  "dependencies": {},
+  "dependencies": {
+    "purescript": "^0.13.8"
+  },
   "devDependencies": {
     "@logux/eslint-config": "^40.0.5",
     "@rollup/plugin-commonjs": "^15.1.0",
