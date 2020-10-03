@@ -26,13 +26,12 @@
     "url": "https://github.com/winston0410/uncurry/issues"
   },
   "homepage": "https://github.com/winston0410/uncurry#readme",
-  "dependencies": {
-    "eslint-plugin-ramda": "^2.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@logux/eslint-config": "^40.0.5",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "acorn": "^8.0.3",
     "chai": "^4.2.0",
     "chai-arrays": "^2.2.0",
     "chai-match": "^1.1.1",
