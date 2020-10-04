@@ -27,4 +27,14 @@ const partialApplication = (param2) => 'Hello'
 
 ## Installation
 
-TODO
+TODO <!--
+
+## API Reference
+
+### `options.curriedFunction` : Boolean
+
+Set this option to `True` to uncurry curried functions. Default to `True`.
+
+### `options.partialApplication` : Boolean
+
+Set this option to `True` to reduce partial applications. Default to `True`. -->
