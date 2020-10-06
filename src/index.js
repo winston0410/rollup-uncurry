@@ -20,9 +20,10 @@ module.exports = function (options) {
           ArrowFunctionExpression (node) {
             // console.log(node)
 
-            console.log(
-              getBody(node)
-            )
+            // console.log(
+            //   getBody(node)
+            // )
+
             // node.async = true
             // console.log()
 
