@@ -37,9 +37,11 @@ Set this option to `True` to uncurry curried functions. Default to `True`.
 
 ### `options.partialApplication` : Boolean
 
-Set this option to `True` to reduce partial applications. Default to `True`. -->
+Set this option to `True` to reduce partial applications. Default to `True`. --> 
 
-## Acknowledgement
+<!-- ## Performance Benchmarking https://jsben.ch/dMZpf -->
+
+ ## Acknowledgement
 
 This project would not exist without the help from the community of Purescript, and I am especially thankful for the following individuals for their advices.
 
