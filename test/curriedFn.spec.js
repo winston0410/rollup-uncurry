@@ -34,10 +34,18 @@ describe('Uncurrying for curried function', function () {
       outputAST,
       {
         VariableDeclaration (node) {
-          if (node.declarations[0].id.name === 'ES6CurriedFn') {
+          if (node.declarations[0].id.name === 'ES6CurriedFnImplicit') {
             const arrowFn = node.declarations[0].init
-
+            // Check if parameter has increased
             // expect(arrowFn.params).to.have.lengthOf(2)
+
+            // Not sure if it should be checked
+            // Check if the function is still returning the same variable
+            // expect(arrowFn.body.name).equal('param1')
+          }
+
+          if (node.declarations[0].id.name === 'ES6CurriedFnExplicit') {
+            const arrowFn = node.declarations[0].init
           }
         },
         FunctionDeclaration (node) {
