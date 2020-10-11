@@ -73,6 +73,7 @@ output
 
 # Purescript IDE
 .psc-ide-port
+.purs-repl
 
 # Ignore purescript output
 _*.js
