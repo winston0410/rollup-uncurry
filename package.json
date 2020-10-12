@@ -9,6 +9,7 @@
   "scripts": {
     "test": "npx mocha --recursive './test/**/*.js' --require esm",
     "build": "npx spago build; NODE_ENV=production npx rollup -c;",
+    "dev": "npx spago build --watch --then 'npx rollup -c;'",
     "prepublish": "npm run build"
   },
   "repository": {
