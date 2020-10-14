@@ -1,40 +1,44 @@
 module Utilities where
 
-import Prelude
-import Node
 import Data.Maybe
+import Data.Nullable
+import Node
+import Prelude
 
--- hasFunctionChild :: forall r. Node ( body :: Maybe (Node r) ) -> Boolean
--- getBody = _.body
---
--- hasFunctionChild node = case node.type, node.body.type of
+import Data.Newtype (unwrap)
+
+-- newtype Node = Node {type :: String, body :: Maybe Node, params :: Maybe (Array { type :: String, name :: String }) }
+-- newtype Node r = Node {type :: String | r }
+newtype Node = Node {type :: String, body :: Maybe Node }
+
+nullToMaybe :: {
+  type :: String,
+  body :: Nullable Node,
+  params :: Nullable ( Array { type :: String, name :: String } )
+  } -> Node
+nullToMaybe obj = Node { type: obj.type, body: toMaybe( obj.body ) }
+
+unwrapNode :: Node -> {type :: String, body :: Maybe Node }
+unwrapNode (Node a) = a
+
+-- hasFunctionChild :: Node -> Boolean
+-- hasFunctionChild (Node node) = case node.type, nextNode.type of
 --    "ArrowFunctionExpression", "ArrowFunctionExpression" -> true
 --    "ArrowFunctionExpression", "FunctionExpression" -> true
 --    "FunctionExpression", "FunctionExpression" -> true
 --    "FunctionExpression", "ArrowFunctionExpression" -> true
 --    _, _ -> false
 --
+--   where
+--   wrappedNextNode = node.body
+--   nextNode = unwrapNode wrappedNextNode
+
+getBody :: Node -> Maybe Node
+getBody (Node node) = node.body
+
+
+
+-- getLastFunction :: Node -> Node
 -- getLastFunction node
 --   | (hasFunctionChild node) == true = node
 --   | otherwise = node
-
-  -- then node # getBody # getLastFunction
-  -- else node
-
-
--- newtype Example = E { name :: Maybe String}
---
--- exampleMatch :: Example -> Boolean
--- exampleMatch (E {name: Just (x)}) = true
--- exampleMatch (E {name: Nothing}) = false
-
-newtype Example = E { name :: Maybe ({
-  age :: Int
-})}
-
-getAge :: Example -> Int
-getAge (E { name: Just({ age: x })}) = x
-getAge (E { name: Nothing}) = 0
-
--- (E obj) = obj.name.age
--- getAge (E obj) = obj.name.age
