@@ -21,17 +21,18 @@ nullToMaybe obj = Node { type: obj.type, body: toMaybe( obj.body ) }
 unwrapNode :: Node -> {type :: String, body :: Maybe Node }
 unwrapNode (Node a) = a
 
--- hasFunctionChild :: Node -> Boolean
--- hasFunctionChild (Node node) = case node.type, nextNode.type of
---    "ArrowFunctionExpression", "ArrowFunctionExpression" -> true
---    "ArrowFunctionExpression", "FunctionExpression" -> true
---    "FunctionExpression", "FunctionExpression" -> true
---    "FunctionExpression", "ArrowFunctionExpression" -> true
---    _, _ -> false
---
---   where
---   wrappedNextNode = node.body
---   nextNode = unwrapNode wrappedNextNode
+hasFunctionChild :: Node -> Boolean
+hasFunctionChild (Node node) = case node.type, wrappedNextNode of
+   "ArrowFunctionExpression", Just ( Node { type: "ArrowFunctionExpression" }) -> true
+   "ArrowFunctionExpression", Just ( Node { type: "FunctionExpression" }) -> true
+   "FunctionExpression", Just ( Node { type: "FunctionExpression" }) -> true
+   "FunctionExpression", Just ( Node { type: "ArrowFunctionExpression" }) -> true
+   _, Nothing -> false
+   _, _ -> false
+
+  where
+  wrappedNextNode = node.body
+  -- nextNode = unwrapNode wrappedNextNode
 
 getBody :: Node -> Maybe Node
 getBody (Node node) = node.body
