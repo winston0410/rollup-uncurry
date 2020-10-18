@@ -6,8 +6,23 @@ const acorn = require('acorn')
 const walk = require('acorn-walk')
 const chai = require('chai')
 const expect = chai.expect
+const { exampleToMaybe } = require('../output/Utilities/index.js')
 
 describe('Uncurrying for curried function', function () {
+  // const example = {
+  //   name: 'Hello'
+  // }
+  //
+  // console.log(
+  //   exampleToMaybe(
+  //     example
+  //   )
+  // )
+
+  // console.log(
+  //   getAge(example)
+  // )
+
   it('should uncurry that curried function', async function () {
     const bundle = await rollup({
       input: './test/curriedFn.example.js',

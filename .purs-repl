@@ -1,1 +1,4 @@
 import Prelude
+import Data.Maybe
+import Foreign
+import Data.Nullable
