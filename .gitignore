@@ -68,7 +68,6 @@ typings/
 output
 .spago
 .psci_modules
-.purs-repl
 
 # Purescript IDE
 .psc-ide-port
