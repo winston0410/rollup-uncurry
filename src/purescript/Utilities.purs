@@ -2,7 +2,6 @@ module Utilities where
 
 import Data.Maybe
 import Data.Nullable
-import Node
 import Prelude
 
 import Data.Newtype (unwrap)
@@ -22,7 +21,7 @@ unwrapNode :: Node -> {type :: String, body :: Maybe Node }
 unwrapNode (Node a) = a
 
 hasFunctionChild :: Node -> Boolean
-hasFunctionChild (Node node) = case node.type, wrappedNextNode of
+hasFunctionChild (Node node) = case node.type, node.body of
    "ArrowFunctionExpression", Just ( Node { type: "ArrowFunctionExpression" }) -> true
    "ArrowFunctionExpression", Just ( Node { type: "FunctionExpression" }) -> true
    "FunctionExpression", Just ( Node { type: "FunctionExpression" }) -> true
@@ -30,16 +29,14 @@ hasFunctionChild (Node node) = case node.type, wrappedNextNode of
    _, Nothing -> false
    _, _ -> false
 
+
+getNextNode :: Node -> Node
+getNextNode node = node # getBody # (fromMaybe (Node {type: "Nothing", body: Nothing}))
   where
-  wrappedNextNode = node.body
-  -- nextNode = unwrapNode wrappedNextNode
+  getBody :: Node -> Maybe Node
+  getBody (Node node) = node.body
 
-getBody :: Node -> Maybe Node
-getBody (Node node) = node.body
-
-
-
--- getLastFunction :: Node -> Node
--- getLastFunction node
---   | (hasFunctionChild node) == true = node
---   | otherwise = node
+getLastFunction :: Node -> Node
+getLastFunction node
+  | (hasFunctionChild node) == true = getNextNode node
+  | otherwise = node
