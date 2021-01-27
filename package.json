@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/winston0410/uncurry#readme",
   "dependencies": {
-    "acorn-walk": "^8.0.0",
+    "acorn-walk": "^8.0.1",
     "astring": "^1.4.3",
     "purescript": "^0.13.8"
   },
