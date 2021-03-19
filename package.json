@@ -41,7 +41,7 @@
   "dependencies": {
     "acorn-walk": "^8.0.0",
     "astring": "^1.4.3",
-    "purescript": "^0.13.8"
+    "purescript": "^0.14.0"
   },
   "devDependencies": {
     "@logux/eslint-config": "^40.0.5",
